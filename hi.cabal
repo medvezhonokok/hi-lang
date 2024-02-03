@@ -1,0 +1,78 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hi
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/hi#readme>
+homepage:       https://github.com/githubuser/hi#readme
+bug-reports:    https://github.com/githubuser/hi/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2023 Author name here
+license:        BSD3
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hi
+
+library
+  exposed-modules:
+      Hi.Base
+      Hi.Evaluator
+      Hi.Parser
+      Hi.Pretty
+      Hi.Utils
+  other-modules:
+      Paths_hi
+  hs-source-dirs:
+      src
+  ghc-options: -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , haskeline
+    , megaparsec
+    , mtl
+    , parser-combinators
+    , prettyprinter
+    , prettyprinter-ansi-terminal
+    , scientific
+    , text
+  default-language: Haskell2010
+
+executable hi
+  main-is: Main.hs
+  other-modules:
+      Paths_hi
+  hs-source-dirs:
+      app
+  ghc-options: -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskeline
+    , hi
+  default-language: Haskell2010
+
+test-suite hi-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hi
+  hs-source-dirs:
+      test
+  ghc-options: -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , containers
+    , hspec
+    , hi
+    , megaparsec
+    , prettyprinter
+    , template-haskell
+    , text
+  default-language: Haskell2010
